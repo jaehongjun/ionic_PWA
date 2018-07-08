@@ -1,0 +1,8 @@
+{
+  "name": "ionicPWA",
+  "app_id": "f6a867fd",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
