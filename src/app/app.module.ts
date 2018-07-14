@@ -14,6 +14,9 @@ import { UserPage } from "../pages/user/user";
 import { ManagerPage } from "../pages/manager/manager";
 import { CategoryPage } from "../pages/category/category";
 import { NewsPage } from "../pages/news/news";
+import { NewsModalPage } from "../pages/news-modal/news-modal"
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 @NgModule({
   declarations: [
     MyApp,
@@ -24,6 +27,7 @@ import { NewsPage } from "../pages/news/news";
     ManagerPage,
     CategoryPage,
     NewsPage,
+    NewsModalPage,
   ],
   imports: [
     BrowserModule,
@@ -39,12 +43,14 @@ import { NewsPage } from "../pages/news/news";
     ManagerPage,
     CategoryPage,
     NewsPage,
+    NewsModalPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoaderProvider
+    LoaderProvider,
+    InAppBrowser,
   ]
 })
 export class AppModule {}

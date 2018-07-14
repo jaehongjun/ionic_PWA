@@ -1,8 +1,13 @@
 <ion-header>
   <ion-navbar color='primary'>
     <ion-title>
-      Home
+      News ON
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-buttons end>
       <button ion-button icon-only (click)="logout()">
         <ion-icon name="log-out"></ion-icon>
@@ -13,6 +18,72 @@
 
 <ion-content padding>
 
+</ion-content>
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!--<ion-list>-->
+      <!--<ion-item (click) = 'clickNews(news)' *ngFor="let news of newses">-->
+        <!--<div style="font-size: 4vw;font-weight: BOLD;color:blue;margin-bottom: 1vw" text-wrap>{{news.title}}</div>-->
+        <!--<ion-grid no-padding>-->
+          <!--<ion-row>-->
+            <!--<ion-col>-->
+              <!--<div style="font-size: 3vw;color: #797a81;">{{news.category}}</div>-->
+            <!--</ion-col>-->
+            <!--<ion-col>-->
+              <!--<div style="font-size: 3vw;color: #814164;">{{news.source}}</div>-->
+            <!--</ion-col>-->
+            <!--<ion-col>-->
+              <!--<div style="font-size: 3vw;color: #37ad8c;">{{news.date}}</div>-->
+            <!--</ion-col>-->
+          <!--</ion-row>-->
+
+        <!--</ion-grid>-->
+        <!--<ion-badge item-end color="danger">-->
+          <!--{{news.clickCount}}-->
+        <!--</ion-badge>-->
+      <!--</ion-item>-->
+      <!--&lt;!&ndash;      <ion-item-options side="left">-->
+              <!--<button ion-button (click)="favorite(item)">Favorite</button>-->
+              <!--<button ion-button color="danger" (click)="share(item)">Share</button>-->
+            <!--</ion-item-options>&ndash;&gt;-->
+  <!--</ion-list>-->
+  <ion-list no-lines>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-sm-12 col-md-4 col-xl-3 *ngFor="let news of newses">
+          <ion-item (click) = 'clickNews(news)'>
+            <ion-card>
+              <ion-card-header>
+                <div style="font-size: 18px;font-weight: BOLD;color:blue;" text-wrap>{{news.title}}</div>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-grid no-padding>
+                  <ion-row>
+                    <ion-col>
+                      <div style="font-size: 13px;color: #797a81;">{{news.category}}</div>
+                    </ion-col>
+                      <ion-col>
+                    <div style="font-size: 13px;color: #814164;">{{news.source}}</div>
+                     </ion-col>
+                    <ion-col>
+                    <div style="font-size: 13px;color: #37ad8c;">{{news.date}}</div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+
+            </ion-card>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 <ion-footer *ngIf="masterSwitch">
